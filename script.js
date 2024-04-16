@@ -21,7 +21,8 @@ btnAddTask.addEventListener('click', () => {
     else {
         let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]")
         values.push({
-            name: input.value
+            name: input.value,
+            done: false
         })
         localStorage.setItem(localStorageKey, JSON.stringify(values))
         showValues()
@@ -35,8 +36,19 @@ const showValues = () => {
     let list = document.querySelector('#to-do-list');
     list.innerHTML = '';
     for (let i = 0; i < values.length; i++) {
-        list.innerHTML += `<li>${values[i]['name']}<button onclick='removeItem("${values[i]['name']}")'><i class="fa-solid fa-check"></i></button></li>`
+        let taskClass = values[i].done ? 'done' : '';
+        list.innerHTML += `<li class='${taskClass}'>${values[i]['name']} <div><button title='Mark as done' class='marcar-feito' onclick='markItem("${values[i]['name']}")'><i class="fa-solid fa-check"></i></button></button><button title ='Delete' onclick='removeItem("${values[i]['name']}")'><i class="fa-solid fa-trash"></i></button></li></div>`
 
+    }
+}
+
+const markItem = (name) => {
+    let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]");
+    let task = values.find(x => x.name === name);
+    if (task) {
+        task.done = !task.done; // Inverte o estado da tarefa (feita ou não feita)
+        localStorage.setItem(localStorageKey, JSON.stringify(values));
+        showValues();
     }
 }
 

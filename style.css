@@ -83,10 +83,10 @@ body {
     flex-direction: column;
     width: 100%;
     padding: 20px 0;
-    
+
 }
 
-#to-do-list li {
+ li {
     list-style: none;
     color: var(--color-white);
     text-align: left;
@@ -107,7 +107,8 @@ body {
 }
 
 li button {
-    background-color: var(--color-green2);
+    background-color: red;
+    opacity: .7;
     transition: all .5s ease;
     width: 30px;
     height: 30px;
@@ -117,5 +118,25 @@ li button {
 }
 
 li button:hover {
+    opacity: 1;
+    ;
+}
+
+.marcar-feito {
+    background-color: var(--color-green2);
+}
+
+.marcar-feito:hover {
     background-color: var(--color-green);
 }
+
+li>div {
+    display: flex;
+    gap: .5em;
+}
+
+.done {
+    text-decoration: line-through green;
+    text-decoration-thickness:3px;
+}
+
