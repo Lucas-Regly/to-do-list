@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+:root {
+    --color-dark: rgb(14, 14, 14);
+    --color-dark2: rgb(32, 32, 32);
+    --color-dark3: rgb(22, 22, 22);
+    --color-white: rgb(255, 255, 255);
+    --color-green: rgb(103, 195, 80);
+    --color-green2: rgb(51, 149, 26);
+    --color-red: rgb(184, 40, 35);
+    --color-red2: rgb(146, 22, 17);
+}
+
+.flex {
+    display: flex;
+}
+
+body {
+    background-color: var(--color-dark);
+}
+
+.main-container {
+    max-width: 380px;
+    width: 100%;
+    margin: 150px auto;
+    text-align: center;
+}
+
+.title {
+    color: #fff;
+    margin: 40px 0;
+    font-size: 50px;
+}
+
+
+.content {
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.content--add-iten {
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+}
+
+#input-new-task,
+#btn-new-task {
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    padding: 1rem;
+}
+
+#input-new-task {
+    border-radius: 15px;
+    width: 20rem;
+}
+
+#btn-new-task {
+    background-color: var(--color-green2);
+    cursor: pointer;
+    transition: all .5s ease;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+    padding: 0;
+    color: var(--color-white);
+}
+
+#btn-new-task:hover {
+    background-color: var(--color-green);
+}
+
+#to-do-list {
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 0;
+
+}
+
+li {
+    list-style: none;
+    color: var(--color-white);
+    text-align: left;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    transition: all .4s ease;
+    align-items: center;
+}
+
+#to-do-list li:hover {
+    background-color: var(--color-dark3);
+    border-radius: 1rem;
+    padding-left: 1rem;
+    cursor: pointer;
+}
+
+li button {
+    background-color: red;
+    opacity: .7;
+    transition: all .5s ease;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+li button:hover {
+    opacity: 1;
+    ;
+}
+
+.marcar-feito {
+    background-color: var(--color-green2);
+}
+
+.marcar-feito:hover {
+    background-color: var(--color-green);
+}
+
+li>div {
+    display: flex;
+    gap: .5em;
+}
+
+.done {
+    text-decoration: line-through green;
+    text-decoration-thickness: 3px;
+}
+
+li.drag-over {
+    border: 2px dashed #ccc;
+    background-color: #585050;
+}
+
+li.dragging {
+    opacity: 0.5;
+}
